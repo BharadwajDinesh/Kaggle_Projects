@@ -1,0 +1,14 @@
+EDA Summary: Key Findings
+1. Lab & Video Metadata Analysis
+Finding: The dataset is a collection of videos from numerous different labs, each with a unique lab_id.
+
+Key Insight: There's a severe imbalance in data contribution. The MABe22 and CalMS21 datasets provide the vast majority of the videos, creating a "long-tail" distribution where most labs contribute very little data.
+
+Strategic Implication: This creates a high risk of our model overfitting to the conditions of the dominant labs. To get a high score, our model must generalize well to unseen labs. This confirms that using a GroupKFold validation strategy (splitting data by lab_id) is essential for building a robust model.
+
+2. Behavior Label Analysis
+Finding: We've identified over 30 distinct behaviors to classify.
+
+Key Insight: There's a massive class imbalance among the behaviors. A few actions like sniff are extremely common, while many others like allogroom and ejaculate are incredibly rare.
+
+Strategic Implication: This explains why the competition uses an F-score as its metric—it forces us to build a model that can successfully identify the rare "needle in a haystack" behaviors. Our modeling approach must directly address this imbalance using techniques like class weights, resampling, or specialized loss functions.
