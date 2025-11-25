@@ -81,4 +81,3 @@ The first step of the pipeline is semantic segmentation, where the goal is to id
 
 For this task, we use a U-Net–based semantic segmentation model, chosen for its strong performance in medical imaging. U-Net’s encoder–decoder structure allows it to capture both high-level context and fine-grained details, making it well-suited for extracting ECG traces from noisy, scanned, or distorted images.
 
-We explored multiple variations, but found that having a diverse training set mattered more than the specific architecture, so U-Net was retained as the primary segmentation model.
